@@ -8,31 +8,43 @@
 					$form.trigger('before.f.submit');
 					var settings = $form.data('settings');
 					var validated = false;
-					$.fn.yiiactiveform.validate($form, function (data){
-						var hasError = false;
-						$.each(settings.attributes, function () {
-							hasError = $.fn.yiiactiveform.updateInput(this, data, $form)
-								|| hasError;
-						});
-						$.fn.yiiactiveform.updateSummary($form, data);
-						if (settings.afterValidate === undefined
-							|| settings.afterValidate($form, data, hasError)) {
-							if (!hasError) {
-								validated = true;
+
+					if (settings.timer !== undefined) {
+						clearTimeout(settings.timer);
+					}
+					settings.submitting = true;
+					if (settings.beforeValidate === undefined
+						|| settings.beforeValidate($form)) {
+						$.fn.yiiactiveform.validate($form, function (data) {
+							var hasError = false;
+							$.each(settings.attributes, function () {
+								hasError = $.fn.yiiactiveform.updateInput(this, data, $form) || hasError;
+							});
+							$.fn.yiiactiveform.updateSummary($form, data);
+							if (settings.afterValidate === undefined
+								|| settings.afterValidate($form, data, hasError)) {
+								if (!hasError) {
+									validated = true;
+									var extData = '&' + settings.ajaxVar + '=' + $form.attr('id');
+									/*$.ajax({
+										url: settings.validationUrl,
+										type: $form.attr('method'),
+										data: $form.serialize() + extData,
+										dataType: 'json',
+										success:function(data) {
+											console.log(data);
+										}
+									});*/
+								}
 							}
-						}
-					});
-					console.log(validated);
-					$.ajax({
-						'url':$form.data('url'),
-						'data':$form.serialize(),
-						'type':'post',
-						'dataType':'json',
-						'success':function(data) {
-							console.log('test');
-						}
-					});
+							settings.submitting = false;
+						});
+					}
+					else {
+						settings.submitting = false;
+					}
 					$form.trigger('after.f.submit');
+					return false;
 				})
 				.on('before.f.submit',function(e){
 					console.log('before');

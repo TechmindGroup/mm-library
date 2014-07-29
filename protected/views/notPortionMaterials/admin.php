@@ -1,9 +1,10 @@
 <?php
 /* @var $this NotPortionMaterialsController */
 /* @var $model NotPortionMaterials */
-/* @var $new_model PortionMaterials */
+/* @var $assign_model PortionMaterials */
 /* @var $assign_form TbActiveForm */
 
+$assign_model=new PortionMaterials;
 
 	$this->breadcrumbs=array(
 	Yii::t('notPortionMaterials','LABEL')=>array('index'),
@@ -27,12 +28,19 @@ $this->menu=array(
 		'events' => array(
 			'shown.bs.modal'=>"js:function(e){
 				if (e.target == this) {
-						var \$this = $(this);
-						var data = \$this.data('s.data');
-						var \$form = \$this.find('form');
-						\$form.find('[name=\"NotPortionMaterials[id]\"]').val(data.id);
-						\$form.find('[name=\"NotPortionMaterials[description]\"]').val(data.description);
-					}
+					var \$this = $(this);
+					var data = \$this.data('s.data');
+					var \$form = \$this.find('form');
+					\$form.find('[name=\"PortionMaterials[id]\"]').val(data.id);
+					\$form.find('[name=\"PortionMaterials[description]\"]').val(data.description);
+				}
+			}",
+			'hidden.bs.modal'=>"js:function(e){
+				if (e.target == this) {
+					var \$this = $(this);
+					var \$form = \$this.find('form');
+					\$form.trigger('reset');
+				}
 			}"
 		),
 		'htmlOptions' => array(
@@ -48,7 +56,10 @@ $this->menu=array(
 		<?php
 			$assign_form = $this->beginWidget('booster.widgets.TbActiveForm', array(
 					'id' => 'assign-portion-form',
-					'htmlOptions' => array('class' => 'well'),
+					'action'=>Yii::app()->controller->createUrl("assignPortion"),
+					'htmlOptions' => array(
+						'class' => 'well',
+					),
 					'enableClientValidation'=>true,
 					'enableAjaxValidation'=>true,
 					'clientOptions'=>array(
@@ -59,22 +70,22 @@ $this->menu=array(
 			);
 		?>
 		<p class="note"><?php echo Yii::t('app','required_fields'); ?></p>
-		<?php echo $assign_form->errorSummary($new_model); ?>
+		<?php echo $assign_form->errorSummary($assign_model); ?>
 		<fieldset>
 			<div class="row">
 				<div class="col-sm-6">
-					<?php echo $assign_form->textFieldGroup($new_model, 'description',
+					<?php echo $assign_form->textFieldGroup($assign_model, 'description',
 						array()); ?>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
-					<?php echo $assign_form->textFieldGroup($new_model, 'am',
+					<?php echo $assign_form->textFieldGroup($assign_model, 'am',
 						array('size'=>20,'maxlength'=>20)); ?>
 				</div>
 			</div>
 		</fieldset>
-		<?php echo $assign_form->textField($new_model, 'id',array('class'=>'hide')); ?>
+		<?php echo $assign_form->textField($assign_model, 'id',array('class'=>'hide')); ?>
 		<?php $this->endWidget(); unset($assign_form);?>
 	</div>
 	<div class="modal-footer">

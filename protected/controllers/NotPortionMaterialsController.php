@@ -4,6 +4,32 @@ require(dirname(__FILE__).'/PortionMaterialsController.php');
 class NotPortionMaterialsController extends PortionMaterialsController
 {
 	/**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
+	public function accessRules()
+	{
+		return array(
+			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('index','view'),
+				'users'=>array('*'),
+			),
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('create','update'),
+				'users'=>array('@'),
+			),
+			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+				'actions'=>array('admin','delete', 'assignPortion'),
+				'users'=>array('admin'),
+			),
+			array('deny',  // deny all users
+				'users'=>array('*'),
+			),
+		);
+	}
+
+	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
@@ -99,7 +125,6 @@ class NotPortionMaterialsController extends PortionMaterialsController
 	public function actionAdmin()
 	{
 		$model=new NotPortionMaterials('search');
-		$new_model=new NotPortionMaterials;
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['NotPortionMaterials']))
 			$model->attributes=$_GET['NotPortionMaterials'];
@@ -113,8 +138,23 @@ class NotPortionMaterialsController extends PortionMaterialsController
 
 		$this->render('admin',array(
 			'model'=>$model,
-			'new_model'=>$new_model,
 		));
+	}
+
+	public function actionAssignPortion(){
+
+		if (Yii::app()->getRequest()->getIsAjaxRequest() &&
+			Yii::app()->getRequest()->getIsPostRequest() ) {
+
+			$data = Yii::app()->getRequest()->getRestParams();
+			if(isset($data['PortionMaterials']))
+			{
+				$model=PortionMaterials::model()->findByPk($data['PortionMaterials']['id']);
+				$model->attributes=$data['PortionMaterials'];
+				$this->performAjaxValidation($model);
+			}
+		}
+
 	}
 
 	/**
@@ -130,6 +170,24 @@ class NotPortionMaterialsController extends PortionMaterialsController
 		if($model===null)
 			throw new CHttpException(404,Yii::t('app_error','404'));
 		return $model;
+	}
+
+	/**
+	 * Performs the AJAX validation.
+	 * @param PortionMaterials $model the model to be validated
+	 */
+	protected function performAjaxValidation($model)
+	{
+		if(isset($_POST['ajax']) && $_POST['ajax']==='materials-form')
+		{
+			echo TbActiveForm::validate($model);
+			Yii::app()->end();
+		}
+		elseif(isset($_POST['ajax']) && $_POST['ajax']==='assign-portion-form')
+		{
+			echo TbActiveForm::validate($model);
+			Yii::app()->end();
+		}
 	}
 
 	public function renderGroupButtons($data, $row) {
