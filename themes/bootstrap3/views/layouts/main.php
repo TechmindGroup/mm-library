@@ -12,6 +12,10 @@
 			Yii::app()->booster->init();
 			Yii::app()->clientScript->registerScriptFile(
 				Yii::app()->baseUrl.'/js/app.js',CClientScript::POS_END);
+			Yii::app()->clientScript->registerScriptFile(
+				Yii::app()->baseUrl.'/js/modal.js',CClientScript::POS_END);
+			Yii::app()->clientScript->registerScriptFile(
+				Yii::app()->baseUrl.'/js/form.js',CClientScript::POS_END);
 		?>
 		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/styles.css" />
 	</head>

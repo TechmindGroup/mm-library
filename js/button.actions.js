@@ -25,5 +25,11 @@
 					});
 
 				});
+			$('.modal [data-form-submit]')
+				.on('click',function(e){
+					var $button = $(this);
+					var $form = $($button.data('formSubmit'));
+					$form.trigger('f.submit');
+				});
 		});
 }(window.jQuery);

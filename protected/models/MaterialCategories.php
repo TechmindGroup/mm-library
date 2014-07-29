@@ -58,7 +58,7 @@ class MaterialCategories extends CActiveRecord
 		return array(
 			'materials' => array(self::HAS_MANY, 'Materials', 'category'),
 			'materialsUnsorteds' => array(self::HAS_MANY, 'MaterialsUnsorted', 'category'),
-			'childCategories' => array(self::HAS_MANY, 'MaterialCategories', 'id'),
+			'childCategories' => array(self::HAS_MANY, 'MaterialCategories', 'parent_id'),
 			'parentCategory' => array(self::BELONGS_TO, 'MaterialCategories', 'parent_id'),
 		);
 	}
@@ -127,7 +127,8 @@ class MaterialCategories extends CActiveRecord
 
 	public function getGroupArray(){
 		$criteria = new CDbCriteria();
-		$criteria->order = 'parent_id ASC';
+		$criteria->order = 't.parent_id ASC';
+//		$criteria->with = 'childCategories';
 
 		$_categories = self::model()->findAll($criteria);
 		$categoriesData = array();

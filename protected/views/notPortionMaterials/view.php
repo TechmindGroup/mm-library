@@ -3,13 +3,13 @@
 /* @var $model Materials */
 
 $this->breadcrumbs=array(
-	Yii::t('materialsOthers','LABEL')=>array('index'),
+	Yii::t('notPortionMaterials','LABEL')=>array('index'),
 	$model->id,
 );
 
 $this->menu=array(
 	array('label'=>Yii::t('app','view_all'), 'url'=>array('index')),
-	array('label'=>Yii::t('materialsOthers','create_new'), 'url'=>array('create')),
+	array('label'=>Yii::t('notPortionMaterials','create_new'), 'url'=>array('create')),
 	array('label'=>Yii::t('app','edit'), 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>Yii::t('app','delete'), 'url'=>'#',
 		'linkOptions'=>array(
@@ -21,7 +21,7 @@ $this->menu=array(
 );
 ?>
 
-<h1><?php echo Yii::t('materials','card_remaining'); ?></h1>
+<h1><?php echo Yii::t('notPortionMaterials','card_remaining'); ?></h1>
 
 <div class="well">
 	<div class="row">

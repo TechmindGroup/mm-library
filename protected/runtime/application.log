@@ -807,3 +807,103 @@ Stack trace:
 REQUEST_URI=/materials/create
 HTTP_REFERER=http://devel.yii/materials
 ---
+2014/07/29 08:31:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/07/29 08:31:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/07/29 08:36:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'parent_id' in order clause is ambiguous. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`parent_id` AS `t0_c2`, `childCategories`.`id` AS `t1_c0`, `childCategories`.`name` AS `t1_c1`, `childCategories`.`parent_id` AS `t1_c2` FROM `material_categories` `t`  LEFT OUTER JOIN `material_categories` `childCategories` ON (`childCategories`.`id`=`t`.`id`)  ORDER BY parent_id ASC.
+in /var/www/YII/devel.yii/protected/models/MaterialCategories.php (133)
+in /var/www/YII/devel.yii/protected/controllers/MaterialsCategoriesController.php (68)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/29 08:36:29 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'parent_id' in order clause is ambiguous. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`parent_id` AS `t0_c2`, `childCategories`.`id` AS `t1_c0`, `childCategories`.`name` AS `t1_c1`, `childCategories`.`parent_id` AS `t1_c2` FROM `material_categories` `t`  LEFT OUTER JOIN `material_categories` `childCategories` ON (`childCategories`.`id`=`t`.`id`)  ORDER BY parent_id ASC' in /var/www/YII/yii-1.1.14/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/YII/yii-1.1.14/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/YII/yii-1.1.14/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/YII/yii-1.1.14/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/YII/yii-1.1.14/framework/db/ar/CActiveRecord.php(1356): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/YII/yii-1.1.14/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/YII/devel.yii/protected/models/MaterialCategories.php(133): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/YII/devel.yii/protected/controllers/MaterialsCategoriesController.php(68): MaterialCategories->getGroupArray()
+#8 /var/www/YII/yii-1.1.14/framework/web/actions/CInlineAction.php(49): MaterialsCategoriesController->actionCreate()
+#9 /var/www/YII/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 /var/www/YII/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /var/www/YII/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /var/www/YII/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /var/www/YII/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#16 /var/www/YII/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('create')
+#18 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('materialsCatego...')
+#19 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#20 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/materialsCategories/create
+HTTP_REFERER=http://devel.yii/materialsCategories
+---
+2014/07/29 08:42:26 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'code_UNIQUE'. The SQL statement executed was: INSERT INTO `materials` (`portion_type`, `quantity`, `quantity_last_year`, `quantity_prov`, `charged`, `quantity_diff`, `price`, `collection`, `controlled`, `attractive`, `ammunition_baseload`, `ammunition_ekp`, `task_completion`, `weapon`, `status`, `code`, `nominal_number`, `category`, `major`, `description`, `comment`, `am`, `quantity_unit`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13, :yp14, :yp15, :yp16, :yp17, :yp18, :yp19, :yp20, :yp21, :yp22).
+in /var/www/YII/devel.yii/protected/controllers/NotPortionMaterialsController.php (20)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/29 08:42:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'code_UNIQUE'. The SQL statement executed was: INSERT INTO `materials` (`portion_type`, `quantity`, `quantity_last_year`, `quantity_prov`, `charged`, `quantity_diff`, `price`, `collection`, `controlled`, `attractive`, `ammunition_baseload`, `ammunition_ekp`, `task_completion`, `weapon`, `status`, `code`, `nominal_number`, `category`, `major`, `description`, `comment`, `am`, `quantity_unit`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13, :yp14, :yp15, :yp16, :yp17, :yp18, :yp19, :yp20, :yp21, :yp22)' in /var/www/YII/yii-1.1.14/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /var/www/YII/yii-1.1.14/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /var/www/YII/devel.yii/protected/controllers/NotPortionMaterialsController.php(20): CActiveRecord->save()
+#3 /var/www/YII/yii-1.1.14/framework/web/actions/CInlineAction.php(49): NotPortionMaterialsController->actionCreate()
+#4 /var/www/YII/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /var/www/YII/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/YII/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /var/www/YII/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/YII/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/YII/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('notPortionMater...')
+#14 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/notPortionMaterials/create
+HTTP_REFERER=http://devel.yii/notPortionMaterials/create
+---
+2014/07/29 09:34:04 [error] [exception.CException] exception 'CException' with message 'Alias "bootstrap.widgets.TbActiveForm" is invalid. Make sure it points to an existing directory or file.' in /var/www/YII/yii-1.1.14/framework/YiiBase.php:347
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWidgetFactory.php(146): YiiBase::import('bootstrap.widge...', true)
+#1 /var/www/YII/yii-1.1.14/framework/web/CBaseController.php(146): CWidgetFactory->createWidget(Object(NotPortionMaterialsController), 'bootstrap.widge...', Array)
+#2 /var/www/YII/yii-1.1.14/framework/web/CBaseController.php(189): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 /var/www/YII/devel.yii/protected/views/notPortionMaterials/admin.php(44): CBaseController->beginWidget('bootstrap.widge...', Array)
+#4 /var/www/YII/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/YII/de...')
+#5 /var/www/YII/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/YII/de...', Array, true)
+#6 /var/www/YII/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/YII/de...', Array, true)
+#7 /var/www/YII/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('admin', Array, true)
+#8 /var/www/YII/devel.yii/protected/controllers/NotPortionMaterialsController.php(115): CController->render('admin', Array)
+#9 /var/www/YII/yii-1.1.14/framework/web/actions/CInlineAction.php(49): NotPortionMaterialsController->actionAdmin()
+#10 /var/www/YII/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/YII/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/YII/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/YII/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/YII/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/YII/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('admin')
+#19 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('notPortionMater...')
+#20 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/notPortionMaterials/admin
+HTTP_REFERER=http://devel.yii/notPortionMaterials
+---

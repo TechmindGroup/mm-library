@@ -17,8 +17,6 @@
 				<span id="2.nominal_number" class="col-sm-12"><?php echo $model->nominal_number; ?></span>
 			</div>
 			<div class="col-sm-5">
-				<label for="3.nominal_number" class="col-sm-12"><?php echo Yii::t('materials','3.portion_number'); ?></label>
-				<span id="3.portion_number" class="col-sm-12">-</span>
 			</div>
 		</div>
 		<div class="row">

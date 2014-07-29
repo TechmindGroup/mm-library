@@ -13,15 +13,4 @@ class NotPortionMaterials extends Materials
 			'condition'=>"t.portion_type=".self::PORTION_STATUS_NOT_INCLUDED,
 		);
 	}
-
-	public function rules_am($attributes, $params){
-		if($this->portion_type == self::PORTION_STATUS_NOT_INCLUDED){
-			$this->am = 1;
-			return true;
-		}
-		if(empty($this->am)){
-			return false;
-		}
-		return true;
-	}
 }

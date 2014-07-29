@@ -5,14 +5,14 @@
 
 
 	$this->breadcrumbs=array(
-	Yii::t('materialsOthers','LABEL')=>array('index'),
+	Yii::t('notPortionMaterials','LABEL')=>array('index'),
 	$model->am . ' - ' . $model->description=>array('view','id'=>$model->id),
 	Yii::t('app','edit'),
 );
 
 $this->menu=array(
 	array('label'=>Yii::t('app','view_all'), 'url'=>array('index')),
-	array('label'=>Yii::t('materialsOthers','create_new'), 'url'=>array('create')),
+	array('label'=>Yii::t('notPortionMaterials','create_new'), 'url'=>array('create')),
 	array('label'=>Yii::t('app','view'), 'url'=>array('view', 'id'=>$model->id)),
 	array('label'=>Yii::t('app','management'), 'url'=>array('admin')),
 );

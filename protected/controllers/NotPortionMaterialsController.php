@@ -99,6 +99,7 @@ class NotPortionMaterialsController extends PortionMaterialsController
 	public function actionAdmin()
 	{
 		$model=new NotPortionMaterials('search');
+		$new_model=new NotPortionMaterials;
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['NotPortionMaterials']))
 			$model->attributes=$_GET['NotPortionMaterials'];
@@ -112,6 +113,7 @@ class NotPortionMaterialsController extends PortionMaterialsController
 
 		$this->render('admin',array(
 			'model'=>$model,
+			'new_model'=>$new_model,
 		));
 	}
 
@@ -128,5 +130,60 @@ class NotPortionMaterialsController extends PortionMaterialsController
 		if($model===null)
 			throw new CHttpException(404,Yii::t('app_error','404'));
 		return $model;
+	}
+
+	public function renderGroupButtons($data, $row) {
+		$items = array();
+		$items[] = array(
+			'label' => Yii::t('app','view'),
+			'icon'=>'glyphicon glyphicon-eye-open',
+			'url' => Yii::app()->controller->createUrl("view",array("id"=>$data->id))
+		);
+
+		if($this->Action->Id == 'admin'){
+			Yii::app()->clientScript->registerScriptFile(
+				Yii::app()->baseUrl.'/js/button.actions.js',CClientScript::POS_END);
+
+			$items[] = array(
+				'label' => Yii::t('app','edit'),
+				'icon'=>'glyphicon glyphicon-edit',
+				'url' => Yii::app()->controller->createUrl("update",array("id"=>$data->id))
+			);
+			$items[] = array(
+				'buttonType' => 'button',
+				'label' => Yii::t('notPortionMaterials','portion_assignment'),
+				'icon'=>'glyphicon glyphicon-magnet',
+				'url' => '#',
+				'linkOptions' => array(
+					'data-toggle' => 'modal',
+					'data-target' => '#assign-portion-modal',
+					'data-model' => CJSON::encode(array("id"=>$data->id,"description"=>$data->description))
+				)
+			);
+			$items[] = array(
+				'buttonType' => 'button',
+				'label' => Yii::t('app','delete'),
+				'icon'=>'glyphicon glyphicon-trash',
+				'url' => '#',
+				'linkOptions' => array(
+					'data-url' => Yii::app()->controller->createUrl("delete", array("id"=>$data->id)),
+					'data-need-confirm'=>'true',
+					'data-confirmation-message'=>Yii::t('app','delete_confirmation_message')
+				)
+			);
+		}
+		$this->widget(
+			'booster.widgets.TbButtonGroup',
+			array(
+				'context'=>'default',
+				'size' => 'small',
+				'buttons' => array(
+					array('label' => null,'icon'=>'wrench', 'url' => '#'),
+					array(
+						'items' => $items
+					)
+				),
+			)
+		);
 	}
 }

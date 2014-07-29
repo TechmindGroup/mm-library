@@ -56,7 +56,6 @@ class Materials extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-//			array('am','rules_am','on'=>'create'),
 			//required
 			array('am, description, nominal_number, category, quantity_unit'
 				, 'required'),
@@ -211,9 +210,5 @@ class Materials extends CActiveRecord
 	public function beforeSave(){
 		$this->quantity_diff = $this->quantity - $this->charged;
 		return parent::beforeSave();
-	}
-
-	public function rules_am($attributes, $params){
-		return true;
 	}
 }

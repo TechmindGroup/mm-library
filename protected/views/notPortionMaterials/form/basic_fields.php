@@ -1,9 +1,8 @@
 <?php
-	/* @var $this NotPortionMaterialsController */
-	/* @var $model Materials */
-	/* @var $form TbActiveForm */
-	/* @var $categoriesData array */
-
+/* @var $this NotPortionMaterialsController */
+/* @var $model Materials */
+/* @var $form TbActiveForm */
+/* @var $categoriesData array */
 ?>
 
 <fieldset>
