@@ -21,10 +21,10 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
 
-	protected function beforeAction($action){
+	/*protected function beforeAction($action){
 		if(defined('YII_DEBUG') && YII_DEBUG){
 			Yii::app()->assetManager->forceCopy = true;
 		}
 		return parent::beforeAction($action);
-	}
+	}*/
 }

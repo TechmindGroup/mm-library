@@ -1,9 +1,8 @@
 <?php
-	/* @var $this MaterialsController */
-	/* @var $model Materials */
-	/* @var $form TbActiveForm */
-	/* @var $categoriesData array */
-
+/* @var $this PortionMaterialsController */
+/* @var $model Materials */
+/* @var $form TbActiveForm */
+/* @var $categoriesData array */
 ?>
 
 <fieldset>
@@ -35,8 +34,7 @@
 						'htmlOptions' => array(
 							'min'=>1,
 							'placeholder'=>Yii::t('materials','please_select_a_category'),
-						),
-						'options' => array()
+						)
 					)
 				)
 			);?>

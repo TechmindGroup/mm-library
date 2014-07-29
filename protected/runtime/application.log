@@ -708,3 +708,102 @@ Stack trace:
 REQUEST_URI=/assets/434c32a2/notify/notify.min.js
 HTTP_REFERER=http://devel.yii/
 ---
+2014/07/28 18:55:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/434c32a2/bootstrap/css/bootstrap.min.css".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/434c32a2...')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/434c32a2/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://devel.yii/
+---
+2014/07/28 18:55:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/434c32a2/css/bootstrap-yii.css".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/434c32a2...')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/434c32a2/css/bootstrap-yii.css
+HTTP_REFERER=http://devel.yii/
+---
+2014/07/28 18:55:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/434c32a2/css/jquery-ui-bootstrap.css".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/434c32a2...')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/434c32a2/css/jquery-ui-bootstrap.css
+HTTP_REFERER=http://devel.yii/
+---
+2014/07/28 18:55:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/434c32a2/js/bootstrap-noconflict.js".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/434c32a2...')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/434c32a2/js/bootstrap-noconflict.js
+HTTP_REFERER=http://devel.yii/
+---
+2014/07/28 18:55:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/434c32a2/bootstrap/js/bootstrap.min.js".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/434c32a2...')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/434c32a2/bootstrap/js/bootstrap.min.js
+HTTP_REFERER=http://devel.yii/
+---
+2014/07/28 18:55:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/434c32a2/bootbox/bootbox.min.js".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/434c32a2...')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/434c32a2/bootbox/bootbox.min.js
+HTTP_REFERER=http://devel.yii/
+---
+2014/07/28 18:55:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/434c32a2/notify/notify.min.js".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/434c32a2...')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/434c32a2/notify/notify.min.js
+HTTP_REFERER=http://devel.yii/
+---
+2014/07/28 18:55:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/434c32a2/js/bootstrap-noconflict.js".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/434c32a2...')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/434c32a2/js/bootstrap-noconflict.js
+HTTP_REFERER=http://devel.yii/
+---
+2014/07/28 18:55:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/434c32a2/bootbox/bootbox.min.js".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/434c32a2...')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/434c32a2/bootbox/bootbox.min.js
+HTTP_REFERER=http://devel.yii/
+---
+2014/07/28 18:55:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/434c32a2/notify/notify.min.js".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/434c32a2...')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/434c32a2/notify/notify.min.js
+HTTP_REFERER=http://devel.yii/
+---
+2014/07/28 19:09:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "materials/create".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('materials/creat...')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/materials/create
+HTTP_REFERER=http://devel.yii/materials
+---

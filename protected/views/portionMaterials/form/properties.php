@@ -1,5 +1,5 @@
 <?php
-	/* @var $this MaterialsController */
+	/* @var $this PortionMaterialsController */
 	/* @var $model Materials */
 	/* @var $form TbActiveForm */
 

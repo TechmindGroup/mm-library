@@ -69,11 +69,9 @@ class PortionMaterialsController extends Controller
 
 		if(isset($_POST['PortionMaterials']))
 		{
-			print_r($_POST);
 			$model->attributes=$_POST['PortionMaterials'];
 			print($model->validate());
 			if($model->save()){
-				print "1111111111111111111";
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}
