@@ -1,6 +1,6 @@
 <?php
 
-class PortionMaterialsController extends Controller
+class CompositionsController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -62,14 +62,14 @@ class PortionMaterialsController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new PortionMaterials;
+		$model=new MaterialCompositions;
 
 		// Uncomment the following line if AJAX validation is needed
 		$this->performAjaxValidation($model);
 
-		if(isset($_POST['PortionMaterials']))
+		if(isset($_POST['MaterialCompositions']))
 		{
-			$model->attributes=$_POST['PortionMaterials'];
+			$model->attributes=$_POST['MaterialCompositions'];
 			print($model->validate());
 			if($model->save()){
 				$this->redirect(array('view','id'=>$model->id));
@@ -77,8 +77,7 @@ class PortionMaterialsController extends Controller
 		}
 
 		$this->render('create',array(
-			'model'=>$model,
-			'categoriesData'=>MaterialCategories::model()->getGroupArray()
+			'model'=>$model
 		));
 	}
 
@@ -94,16 +93,15 @@ class PortionMaterialsController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		$this->performAjaxValidation($model);
 
-		if(isset($_POST['PortionMaterials']))
+		if(isset($_POST['MaterialCompositions']))
 		{
-			$model->attributes=$_POST['PortionMaterials'];
+			$model->attributes=$_POST['MaterialCompositions'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('update',array(
 			'model'=>$model,
-			'categoriesData'=>MaterialCategories::model()->getGroupArray()
 		));
 	}
 
@@ -122,7 +120,7 @@ class PortionMaterialsController extends Controller
 				? $_POST['returnUrl'] : array('admin'));
 		}
 
-		$model=new PortionMaterials('search');
+		$model=new MaterialCompositions('search');
 //		header( 'Content-type: application/json' );
 		$this->renderPartial('_list', array('model'=>$model));
 		Yii::app()->end();
@@ -133,13 +131,13 @@ class PortionMaterialsController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$model=new PortionMaterials('search');
+		$model=new MaterialCompositions('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['PortionMaterials']))
-			$model->attributes=$_GET['PortionMaterials'];
+		if(isset($_GET['MaterialCompositions']))
+			$model->attributes=$_GET['MaterialCompositions'];
 
 		if (Yii::app()->getRequest()->getIsAjaxRequest() &&
-			(isset($_GET['ajax']) && $_GET['ajax']==='material-grid')) {
+			(isset($_GET['ajax']) && $_GET['ajax']==='composition-grid')) {
 //			header( 'Content-type: application/json' );
 			$this->renderPartial('_index', compact('model'));
 			Yii::app()->end();
@@ -154,10 +152,10 @@ class PortionMaterialsController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new PortionMaterials('search');
+		$model=new MaterialCompositions('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['PortionMaterials']))
-			$model->attributes=$_GET['PortionMaterials'];
+		if(isset($_GET['MaterialCompositions']))
+			$model->attributes=$_GET['MaterialCompositions'];
 
 		if (Yii::app()->getRequest()->getIsAjaxRequest() &&
 			(isset($_GET['ajax']) && $_GET['ajax']==='material-grid')) {
@@ -180,7 +178,7 @@ class PortionMaterialsController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=PortionMaterials::model()->findByPk($id);
+		$model=MaterialCompositions::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,Yii::t('app_error','404'));
 		return $model;
@@ -192,7 +190,7 @@ class PortionMaterialsController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='materials-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='composition-form')
 		{
 			echo TbActiveForm::validate($model);
 			Yii::app()->end();

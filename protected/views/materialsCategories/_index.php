@@ -21,6 +21,6 @@
 		'type' => 'striped bordered',
 		'columns' => $gridColumns,
 		'enablePagination'=>true,
-		'emptyText' => 'empty text',
+		'emptyText' => Yii::t('app','zero_records'),
 		'summaryText'=> Yii::t('app','total_{count}_records'),
 	));

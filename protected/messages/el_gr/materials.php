@@ -77,4 +77,5 @@
 		'please_select_a_category' => 'επιλέξτε κατηγορία',
 		'add_new_transaction' => 'προσθήκη νέας ενέργειας',
 		'portion_type' => 'κατάσταση μερίδας',
+		'zero_records' => 'δεν βρέθηκαν υλικά',
 	);

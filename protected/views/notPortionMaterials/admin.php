@@ -21,6 +21,10 @@ $this->menu=array(
 <?php
 	$this->renderPartial('_list',array('model'=>$model));
 
+	Yii::app()->clientScript->registerScriptFile(
+		Yii::app()->baseUrl.'/js/notPortionMaterials/form.js'
+		,CClientScript::POS_END);
+
 	$this->beginWidget(
 	'booster.widgets.TbModal',
 	array(
@@ -59,6 +63,7 @@ $this->menu=array(
 					'action'=>Yii::app()->controller->createUrl("assignPortion"),
 					'htmlOptions' => array(
 						'class' => 'well',
+						'data-form'=>'ajax'
 					),
 					'enableClientValidation'=>true,
 					'enableAjaxValidation'=>true,

@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "material_composition".
+ * This is the model class for table "material_composition_items".
  *
- * The followings are the available columns in table 'material_composition':
+ * The followings are the available columns in table 'material_composition_items':
  * @property string $id
  * @property string $nominal_number
  * @property string $charged_number
@@ -14,14 +14,14 @@
  * The followings are the available model relations:
  * @property Departments $department
  */
-class MaterialComposition extends CActiveRecord
+class MaterialCompositionItems extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'material_composition';
+		return 'material_composition_items';
 	}
 
 	/**
@@ -102,7 +102,7 @@ class MaterialComposition extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return MaterialComposition the static model class
+	 * @return MaterialCompositionItems the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

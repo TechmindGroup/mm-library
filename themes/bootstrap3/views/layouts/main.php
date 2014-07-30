@@ -44,8 +44,19 @@
 								'items'=>array(
 									array('label'=>Yii::t('app','materials_with_portion'),'url'=>'/portionMaterials'),
 									array('label'=>Yii::t('app','materials_without_portion'),'url'=>'/notPortionMaterials'),
+									'<hr/>',
+									array('label'=>Yii::t('app','compositions'),'url'=>'/compositions'),
+									'<hr/>',
 									array('label'=>Yii::t('app','units'),'url'=>'/materialsUnits'),
 									array('label'=>Yii::t('app','categories'),'url'=>'/materialsCategories'),
+								)
+							),
+							array(
+								'label'=>Yii::t('app','departments'),
+								'itemOptions' =>   array('class' => 'dropdown-submenu'),
+								'items'=>array(
+									array('label'=>Yii::t('app','my_department'),'url'=>'/myDepartment'),
+									array('label'=>Yii::t('app','collaborating_departments'),'url'=>'/collaboratingDepartments'),
 								)
 							),
 							array('label'=>Yii::t('app','login'), 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),

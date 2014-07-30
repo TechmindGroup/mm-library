@@ -31,4 +31,9 @@
 		'close' => 'κλείσημο',
 		'yes' => 'ναι',
 		'no' => 'όχι',
+		'zero_records' => 'δεν βρέθηκαν εγγραφές',
+		'compositions' => 'Συνθέσεις',
+		'departments' => 'Μονάδες',
+		'my_department' => 'Η μονάδα μου',
+		'collaborating_departments' => 'Συνεργαζόμενες μονάδες',
 	);

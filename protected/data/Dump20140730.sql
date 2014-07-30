@@ -123,7 +123,7 @@ CREATE TABLE `material_categories` (
   UNIQUE KEY `name_UNIQUE` (`name`),
   KEY `fk_material_categories_1_idx` (`parent_id`),
   CONSTRAINT `fk_material_categories_1` FOREIGN KEY (`parent_id`) REFERENCES `material_categories` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,7 +132,7 @@ CREATE TABLE `material_categories` (
 
 LOCK TABLES `material_categories` WRITE;
 /*!40000 ALTER TABLE `material_categories` DISABLE KEYS */;
-INSERT INTO `material_categories` VALUES (0,'-',0),(1,'κατηγορία 1',0),(2,'κατηγορία 2',0),(3,'κατηγορία 3',0),(5,'sub1',1),(6,'s1-1',1),(7,'sub2',2),(8,'sub3',3);
+INSERT INTO `material_categories` VALUES (0,'-',0),(1,'κατηγορία 1',0),(2,'κατηγορία 2',0),(3,'κατηγορία 3',0),(5,'sub1',1),(6,'s1-1',1),(7,'sub2',2),(8,'sub3',3),(9,'new',0);
 /*!40000 ALTER TABLE `material_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,13 +172,13 @@ LOCK TABLES `material_components` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `material_composition`
+-- Table structure for table `material_composition_items`
 --
 
-DROP TABLE IF EXISTS `material_composition`;
+DROP TABLE IF EXISTS `material_composition_items`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `material_composition` (
+CREATE TABLE `material_composition_items` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nominal_number` varchar(255) NOT NULL,
   `charged_number` varchar(255) DEFAULT NULL,
@@ -192,12 +192,41 @@ CREATE TABLE `material_composition` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `material_composition`
+-- Dumping data for table `material_composition_items`
 --
 
-LOCK TABLES `material_composition` WRITE;
-/*!40000 ALTER TABLE `material_composition` DISABLE KEYS */;
-/*!40000 ALTER TABLE `material_composition` ENABLE KEYS */;
+LOCK TABLES `material_composition_items` WRITE;
+/*!40000 ALTER TABLE `material_composition_items` DISABLE KEYS */;
+/*!40000 ALTER TABLE `material_composition_items` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `material_compositions`
+--
+
+DROP TABLE IF EXISTS `material_compositions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `material_compositions` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `material_id` bigint(20) unsigned NOT NULL,
+  `department_id` int(10) unsigned NOT NULL,
+  `documentary_number` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index2` (`material_id`),
+  KEY `index3` (`department_id`),
+  CONSTRAINT `fk_material_compositions_2` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_material_compositions_1` FOREIGN KEY (`material_id`) REFERENCES `materials` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `material_compositions`
+--
+
+LOCK TABLES `material_compositions` WRITE;
+/*!40000 ALTER TABLE `material_compositions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `material_compositions` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -241,7 +270,7 @@ CREATE TABLE `materials` (
   `description` varchar(255) NOT NULL,
   `comment` text,
   `nominal_number` varchar(255) NOT NULL COMMENT 'αριθμός ονομαστικού',
-  `code` bigint(20) NOT NULL COMMENT 'αριθμος κώδικα',
+  `code` varchar(20) NOT NULL COMMENT 'αριθμος κώδικα',
   `category` int(10) unsigned NOT NULL,
   `quantity_unit` int(10) unsigned NOT NULL COMMENT 'μονάδα μέτρησης',
   `quantity` decimal(6,0) unsigned NOT NULL DEFAULT '0' COMMENT 'current quantity',
@@ -269,7 +298,7 @@ CREATE TABLE `materials` (
   KEY `portion_type_INDEX` (`portion_type`),
   CONSTRAINT `fk_materials_1` FOREIGN KEY (`category`) REFERENCES `material_categories` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_materials_2` FOREIGN KEY (`quantity_unit`) REFERENCES `material_qunits` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -278,7 +307,7 @@ CREATE TABLE `materials` (
 
 LOCK TABLES `materials` WRITE;
 /*!40000 ALTER TABLE `materials` DISABLE KEYS */;
-INSERT INTO `materials` VALUES (1,111,1,'111','','111',111,1,1,2,0,2,1,0,'111',0.00,1,1,0,0,0,0,0,'0'),(3,2222,1,'2222','','2222',2222,3,1,1,1,1,1,0,'2222',1.00,0,0,0,0,0,0,0,'0'),(4,1111111,1,'portion-1','','portion-1',0,1,1,1,0,1,0,1,'',0.00,0,0,0,0,0,0,0,'0');
+INSERT INTO `materials` VALUES (1,111,1,'111','','111','111',1,1,2,0,2,1,0,'111',0.00,1,1,0,0,0,0,0,'0'),(3,2222,1,'2222','','2222','2222',3,1,1,1,1,1,0,'2222',1.00,0,0,0,0,0,0,0,'0'),(4,1111111,1,'portion-1','','portion-1','0',1,1,1,0,1,0,1,'',0.00,0,0,0,0,0,0,0,'0'),(6,12345,1,'no.portion-1','','no.portion-1','no.portion-1',5,18,1,0,1,0,1,'',0.00,0,0,0,0,0,0,0,'0'),(7,12125,1,'aaaa','','aaa','',1,1,0,0,0,0,0,'',0.00,0,0,0,0,0,0,0,'0'),(8,0,1,'bbb','','bbb','bbb',9,24,0,0,0,0,0,'',0.00,0,0,0,0,0,0,0,'0');
 /*!40000 ALTER TABLE `materials` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -395,4 +424,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-28 17:00:18
+-- Dump completed on 2014-07-30 13:27:22
