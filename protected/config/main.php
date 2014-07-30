@@ -24,6 +24,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.models.materials.*',
+		'application.models.departments.*',
 		'application.components.*',
 		'ext.EDataTables.*',
 		'booster.widgets.*',
