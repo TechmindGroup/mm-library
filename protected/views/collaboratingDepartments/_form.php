@@ -1,28 +1,25 @@
 <?php
-/* @var $this MyDepartmentController */
-/* @var $model MyDepartment */
-/* @var $form TbActiveForm */
-
-$this->breadcrumbs=array(
-	Yii::t('myDepartment','LABEL')=>array('index'),
-	$model->name,
-);
+	/* @var $this CollaboratingDepartmentsController */
+	/* @var $model OtherDepartment */
+	/* @var $form TbActiveForm */
 ?>
-
-<h1><?php echo Yii::t('myDepartment','info'); ?></h1>
 
 <div class="form">
 
-<?php $form=$this->beginWidget('booster.widgets.TbActiveForm', array(
-	'id'=>'department-form',
-	'htmlOptions'=>array('class'=>'well'),
-	'enableClientValidation'=>true,
-	'enableAjaxValidation'=>true,
-	'clientOptions'=>array(
-		'validateOnSubmit'=>true,
-		'validateOnChange'=>true,
-	)
-)); ?>
+	<?php $form=$this->beginWidget('booster.widgets.TbActiveForm', array(
+		'id'=>'department-form',
+		'htmlOptions'=>array('class'=>'well'),
+		'enableClientValidation'=>true,
+		'enableAjaxValidation'=>true,
+		'clientOptions'=>array(
+			'validateOnSubmit'=>true,
+			'validateOnChange'=>true,
+		)
+	)); ?>
+
+	<p class="note"><?php echo Yii::t('app','required_fields'); ?></p>
+
+	<?php echo $form->errorSummary($model); ?>
 
 	<fieldset>
 		<div class="row">
@@ -74,5 +71,38 @@ $this->breadcrumbs=array(
 			</div>
 		</div>
 	</fieldset>
+
+	<div class="row">
+		<div class="col-sm-2 pull-right">
+			<div class="form-actions pull-right">
+				<?php $this->widget(
+					'booster.widgets.TbButtonGroup',
+					array(
+						'justified' => true,
+						'size' => 'small',
+						'buttons'=>array(
+							array(
+								'buttonType' => 'submit',
+								'context' => 'primary',
+								'icon' => 'glyphicon glyphicon-floppy-save',
+								'tooltip' => true,
+								'tooltipOptions' => array(
+									'title'=>Yii::t('app','submit')
+								)
+							),
+							array(
+								'buttonType' => 'reset',
+								'icon' => 'glyphicon glyphicon-refresh',
+								'tooltip' => true,
+								'tooltipOptions' => array(
+									'title'=>Yii::t('app','reset')
+								)
+							)
+						)
+					)
+				); ?>
+			</div>
+		</div>
+	</div>
 	<?php $this->endWidget(); unset($form);?>
 </div><!-- form -->

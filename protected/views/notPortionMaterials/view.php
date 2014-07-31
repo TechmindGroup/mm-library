@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	Yii::t('notPortionMaterials','LABEL')=>array('index'),
-	$model->id,
+	$model->am . ' - ' . $model->description,
 );
 
 $this->menu=array(

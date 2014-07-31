@@ -1,8 +1,8 @@
 <?php
-	/* @var $this PortionMaterialsController */
-	/* @var $model Materials */
-	/* @var $form TbActiveForm */
-	/* @var $categoriesData array */
+/* @var $this PortionMaterialsController */
+/* @var $model Materials */
+/* @var $form TbActiveForm */
+/* @var $categoriesData array */
 ?>
 
 <div class="form">

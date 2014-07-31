@@ -35,43 +35,21 @@ class MyDepartmentController extends Controller
 	}
 
 	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
-	public function actionCreate()
-	{
-		$model=new MyDepartment;
-
-		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation($model);
-
-		if(isset($_POST['MyDepartment']))
-		{
-			$model->attributes=$_POST['MyDepartment'];
-			$model->save();
-		}
-
-		$this->render('index',array(
-			'model'=>$model
-		));
-	}
-
-	/**
 	 * Lists all models.
 	 */
 	public function actionIndex()
 	{
-		$model=new MyDepartment('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['MyDepartment']))
-			$model->attributes=$_GET['MyDepartment'];
+		$model= MyDepartment::model()->find();
 
-		if (Yii::app()->getRequest()->getIsAjaxRequest() &&
-			(isset($_GET['ajax']) && $_GET['ajax']==='department-grid'))
+		// Uncomment the following line if AJAX validation is needed
+		$this->performAjaxValidation($model);
+		if(isset($_POST['MyDepartment']))
 		{
-			$this->renderPartial('_index', compact('model'));
-			Yii::app()->end();
+			$model->attributes=$_POST['MyDepartment'];
+			if($model->save())
+				$this->redirect(array('index'));
 		}
+
 		$this->render('index',array(
 			'model'=>$model,
 		));
@@ -79,28 +57,13 @@ class MyDepartmentController extends Controller
 
 	/**
 	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
 	 */
-	public function actionView($id)
+	public function actionView()
 	{
+		$model= MyDepartment::model()->find();
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$model,
 		));
-	}
-
-	/**
-	 * Returns the data model based on the primary key given in the GET variable.
-	 * If the data model is not found, an HTTP exception will be raised.
-	 * @param integer $id the ID of the model to be loaded
-	 * @return MyDepartment the loaded model
-	 * @throws CHttpException
-	 */
-	public function loadModel($id)
-	{
-		$model=MyDepartment::model()->findByPk($id);
-		if($model===null)
-			throw new CHttpException(404,Yii::t('app_error','404'));
-		return $model;
 	}
 
 	/**

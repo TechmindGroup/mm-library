@@ -11,9 +11,9 @@
  * @property string $administration_abbreviation
  * @property string $formation
  * @property string $code
+ * @property string $code_completion
  * @property string $address
  * @property string $city
- * @property string $code_completion
  * @property string $ea
  * @property integer $default
  *
@@ -108,7 +108,6 @@ class Departments extends CActiveRecord
 
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('name',$this->name,true);
-		$criteria->compare('description',$this->description,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

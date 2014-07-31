@@ -42,3 +42,13 @@ DROP TABLE `devel_yii`.`departments`;
 
 ALTER TABLE `devel_yii`.`my_department`
 RENAME TO  `devel_yii`.`departments` ;
+
+
+//----------
+INSERT INTO `devel_yii`.`departments`
+(`id`,`name`,`abbreviation`,`administration`,`administration_abbreviation`,`formation`,
+`code`,`address`,`city`,`code_completion`,`ea`,`default`)
+VALUES
+(1,'','','','','','','','','','',1);
+ALTER TABLE `devel_yii`.`departments`
+AUTO_INCREMENT = 2 ;

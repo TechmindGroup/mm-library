@@ -2019,7 +2019,34 @@ in /var/www/YII/devel.yii/index.php (13)
 2014/07/30 10:40:50 [warning] [application] Failed to set unsafe attribute "id" of "PortionMaterials".
 in /var/www/YII/devel.yii/protected/controllers/NotPortionMaterialsController.php (179)
 in /var/www/YII/devel.yii/index.php (13)
-2014/07/30 15:16:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+2014/07/30 13:06:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "myDepartment".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('myDepartment')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/myDepartment
+HTTP_REFERER=http://devel.yii/compositions/admin
+---
+2014/07/30 13:06:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "collaboratingDepartments".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('collaboratingDe...')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/collaboratingDepartments
+HTTP_REFERER=http://devel.yii/myDepartment
+---
+2014/07/30 13:06:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "myDepartment".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('myDepartment')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/myDepartment
+HTTP_REFERER=http://devel.yii/collaboratingDepartments
+---
+2014/07/31 09:14:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
 Stack trace:
 #0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
 #1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
@@ -2027,7 +2054,7 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/favicon.ico
 ---
-2014/07/30 15:16:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+2014/07/31 09:15:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
 Stack trace:
 #0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
 #1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
@@ -2035,15 +2062,286 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/favicon.ico
 ---
-2014/07/30 15:16:25 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'devel_yii.material_compositions' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `material_compositions`.
-in /var/www/YII/devel.yii/protected/controllers/CompositionsController.php (134)
-in /var/www/YII/devel.yii/index.php (13)
-2014/07/30 15:16:25 [error] [exception.CDbException] exception 'CDbException' with message 'The table "material_compositions" for active record class "MaterialCompositions" cannot be found in the database.' in /var/www/YII/yii-1.1.14/framework/db/ar/CActiveRecord.php:2362
+2014/07/31 09:22:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "myDepartment".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
 Stack trace:
-#0 /var/www/YII/yii-1.1.14/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(MaterialCompositions))
-#1 /var/www/YII/yii-1.1.14/framework/db/ar/CActiveRecord.php(79): CActiveRecord->getMetaData()
-#2 /var/www/YII/devel.yii/protected/controllers/CompositionsController.php(134): CActiveRecord->__construct('search')
-#3 /var/www/YII/yii-1.1.14/framework/web/actions/CInlineAction.php(49): CompositionsController->actionIndex()
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('myDepartment')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/myDepartment
+HTTP_REFERER=http://devel.yii/
+---
+2014/07/31 10:41:58 [error] [php] Array to string conversion (/var/www/YII/yii-1.1.14/framework/db/schema/CDbCommandBuilder.php:481)
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/db/ar/CActiveRecord.php(1470): MyDepartment->query()
+#1 /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php(42): MyDepartment->findAll()
+#2 /var/www/YII/yii-1.1.14/framework/web/actions/CInlineAction.php(49): MyDepartmentController->actionIndex()
+#3 /var/www/YII/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(133): MyDepartmentController->runAction()
+#5 /var/www/YII/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /var/www/YII/yii-1.1.14/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#7 /var/www/YII/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): MyDepartmentController->filterAccessControl()
+#8 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#9 /var/www/YII/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#10 /var/www/YII/yii-1.1.14/framework/web/CController.php(265): MyDepartmentController->runActionWithFilters()
+#11 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(282): MyDepartmentController->run()
+#12 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /var/www/YII/devel.yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/myDepartment
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (42)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:43:54 [error] [php] Trying to get property of non-object (/var/www/YII/devel.yii/protected/views/myDepartment/index.php:7)
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CController.php(869): MyDepartmentController->renderFile()
+#1 /var/www/YII/yii-1.1.14/framework/web/CController.php(782): MyDepartmentController->renderPartial()
+#2 /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php(45): MyDepartmentController->render()
+#3 /var/www/YII/yii-1.1.14/framework/web/actions/CInlineAction.php(49): MyDepartmentController->actionIndex()
+#4 /var/www/YII/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(133): MyDepartmentController->runAction()
+#6 /var/www/YII/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/YII/yii-1.1.14/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /var/www/YII/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): MyDepartmentController->filterAccessControl()
+#9 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /var/www/YII/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/YII/yii-1.1.14/framework/web/CController.php(265): MyDepartmentController->runActionWithFilters()
+#12 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(282): MyDepartmentController->run()
+#13 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /var/www/YII/devel.yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/myDepartment
+in /var/www/YII/devel.yii/protected/views/myDepartment/index.php (7)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:50:25 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:50:26 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:50:28 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:50:29 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:50:31 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:50:32 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:50:33 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:50:34 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:50:36 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:50:37 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:50:38 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:50:40 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:50:40 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (48)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:50:41 [error] [php] urlencode() expects parameter 1 to be string, object given (/var/www/YII/yii-1.1.14/framework/web/CUrlManager.php:440)
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CUrlManager.php(302): CUrlRule->createUrl()
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(543): CUrlManager->createUrl()
+#2 /var/www/YII/yii-1.1.14/framework/web/CController.php(967): CWebApplication->createUrl()
+#3 /var/www/YII/yii-1.1.14/framework/web/CController.php(1028): MyDepartmentController->createUrl()
+#4 /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php(50): MyDepartmentController->redirect()
+#5 /var/www/YII/yii-1.1.14/framework/web/actions/CInlineAction.php(49): MyDepartmentController->actionIndex()
+#6 /var/www/YII/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(133): MyDepartmentController->runAction()
+#8 /var/www/YII/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/YII/yii-1.1.14/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#10 /var/www/YII/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): MyDepartmentController->filterAccessControl()
+#11 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#12 /var/www/YII/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/YII/yii-1.1.14/framework/web/CController.php(265): MyDepartmentController->runActionWithFilters()
+#14 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(282): MyDepartmentController->run()
+#15 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/YII/devel.yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/myDepartment
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (50)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:51:20 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:51:21 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:51:23 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:51:25 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:51:27 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:51:29 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:51:33 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:51:35 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:51:39 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:51:42 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:51:43 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (48)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:51:43 [error] [php] urlencode() expects parameter 1 to be string, object given (/var/www/YII/yii-1.1.14/framework/web/CUrlManager.php:440)
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CUrlManager.php(302): CUrlRule->createUrl()
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(543): CUrlManager->createUrl()
+#2 /var/www/YII/yii-1.1.14/framework/web/CController.php(967): CWebApplication->createUrl()
+#3 /var/www/YII/yii-1.1.14/framework/web/CController.php(1028): MyDepartmentController->createUrl()
+#4 /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php(50): MyDepartmentController->redirect()
+#5 /var/www/YII/yii-1.1.14/framework/web/actions/CInlineAction.php(49): MyDepartmentController->actionIndex()
+#6 /var/www/YII/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(133): MyDepartmentController->runAction()
+#8 /var/www/YII/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/YII/yii-1.1.14/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#10 /var/www/YII/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): MyDepartmentController->filterAccessControl()
+#11 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#12 /var/www/YII/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/YII/yii-1.1.14/framework/web/CController.php(265): MyDepartmentController->runActionWithFilters()
+#14 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(282): MyDepartmentController->run()
+#15 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/YII/devel.yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/myDepartment
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (50)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:52:46 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:52:46 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (48)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:52:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('index')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index
+HTTP_REFERER=http://devel.yii/myDepartment
+---
+2014/07/31 10:53:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('index')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index
+HTTP_REFERER=http://devel.yii/myDepartment
+---
+2014/07/31 10:53:31 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:53:31 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (48)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:53:37 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (92)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (45)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 10:53:37 [warning] [application] Failed to set unsafe attribute "id" of "MyDepartment".
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (48)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 11:31:28 [warning] [application] Failed to set unsafe attribute "material" of "MaterialCompositions".
+in /var/www/YII/devel.yii/protected/controllers/CompositionsController.php (137)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 11:31:28 [warning] [application] Failed to set unsafe attribute "department" of "MaterialCompositions".
+in /var/www/YII/devel.yii/protected/controllers/CompositionsController.php (137)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 12:05:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/07/31 12:05:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/07/31 12:18:03 [error] [php] Undefined variable: form (/var/www/YII/devel.yii/protected/views/myDepartment/view.php:18)
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CController.php(869): MyDepartmentController->renderFile()
+#1 /var/www/YII/yii-1.1.14/framework/web/CController.php(782): MyDepartmentController->renderPartial()
+#2 /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php(66): MyDepartmentController->render()
+#3 /var/www/YII/yii-1.1.14/framework/web/actions/CInlineAction.php(49): MyDepartmentController->actionView()
+#4 /var/www/YII/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(133): MyDepartmentController->runAction()
+#6 /var/www/YII/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/YII/yii-1.1.14/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /var/www/YII/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): MyDepartmentController->filterAccessControl()
+#9 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /var/www/YII/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/YII/yii-1.1.14/framework/web/CController.php(265): MyDepartmentController->runActionWithFilters()
+#12 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(282): MyDepartmentController->run()
+#13 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /var/www/YII/devel.yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/myDepartment/view
+in /var/www/YII/devel.yii/protected/views/myDepartment/view.php (18)
+in /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php (66)
+in /var/www/YII/devel.yii/index.php (13)
+2014/07/31 12:19:09 [error] [exception.CException] exception 'CException' with message 'MyDepartmentController contains improperly nested widget tags in its view "/var/www/YII/devel.yii/protected/views/myDepartment/view.php". A TbActiveForm widget does not have an endWidget() call.' in /var/www/YII/yii-1.1.14/framework/web/CBaseController.php:101
+Stack trace:
+#0 /var/www/YII/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/YII/de...', Array, true)
+#1 /var/www/YII/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('view', Array, true)
+#2 /var/www/YII/devel.yii/protected/controllers/MyDepartmentController.php(66): CController->render('view', Array)
+#3 /var/www/YII/yii-1.1.14/framework/web/actions/CInlineAction.php(49): MyDepartmentController->actionView()
 #4 /var/www/YII/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
 #5 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
 #6 /var/www/YII/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
@@ -2052,118 +2350,28 @@ Stack trace:
 #9 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
 #10 /var/www/YII/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
 #11 /var/www/YII/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#12 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
-#13 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('compositions')
+#12 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('view')
+#13 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('myDepartment/vi...')
 #14 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
 #15 /var/www/YII/devel.yii/index.php(13): CApplication->run()
 #16 {main}
-REQUEST_URI=/compositions
-HTTP_REFERER=http://devel.yii/portionMaterials
+REQUEST_URI=/myDepartment/view
 ---
-2014/07/30 15:17:58 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'devel_yii.material_compositions' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `material_compositions`.
-in /var/www/YII/devel.yii/protected/controllers/CompositionsController.php (134)
-in /var/www/YII/devel.yii/index.php (13)
-2014/07/30 15:17:58 [error] [exception.CDbException] exception 'CDbException' with message 'The table "material_compositions" for active record class "MaterialCompositions" cannot be found in the database.' in /var/www/YII/yii-1.1.14/framework/db/ar/CActiveRecord.php:2362
+2014/07/31 12:22:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "collaboratingDepartments".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
 Stack trace:
-#0 /var/www/YII/yii-1.1.14/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(MaterialCompositions))
-#1 /var/www/YII/yii-1.1.14/framework/db/ar/CActiveRecord.php(79): CActiveRecord->getMetaData()
-#2 /var/www/YII/devel.yii/protected/controllers/CompositionsController.php(134): CActiveRecord->__construct('search')
-#3 /var/www/YII/yii-1.1.14/framework/web/actions/CInlineAction.php(49): CompositionsController->actionIndex()
-#4 /var/www/YII/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
-#5 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
-#6 /var/www/YII/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
-#7 /var/www/YII/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
-#8 /var/www/YII/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#9 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
-#10 /var/www/YII/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
-#11 /var/www/YII/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#12 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
-#13 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('compositions')
-#14 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
-#15 /var/www/YII/devel.yii/index.php(13): CApplication->run()
-#16 {main}
-REQUEST_URI=/compositions
-HTTP_REFERER=http://devel.yii/portionMaterials/3
----
-2014/07/30 15:18:05 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'devel_yii.material_compositions' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `material_compositions`.
-in /var/www/YII/devel.yii/protected/controllers/CompositionsController.php (134)
-in /var/www/YII/devel.yii/index.php (13)
-2014/07/30 15:18:05 [error] [exception.CDbException] exception 'CDbException' with message 'The table "material_compositions" for active record class "MaterialCompositions" cannot be found in the database.' in /var/www/YII/yii-1.1.14/framework/db/ar/CActiveRecord.php:2362
-Stack trace:
-#0 /var/www/YII/yii-1.1.14/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(MaterialCompositions))
-#1 /var/www/YII/yii-1.1.14/framework/db/ar/CActiveRecord.php(79): CActiveRecord->getMetaData()
-#2 /var/www/YII/devel.yii/protected/controllers/CompositionsController.php(134): CActiveRecord->__construct('search')
-#3 /var/www/YII/yii-1.1.14/framework/web/actions/CInlineAction.php(49): CompositionsController->actionIndex()
-#4 /var/www/YII/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
-#5 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
-#6 /var/www/YII/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
-#7 /var/www/YII/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
-#8 /var/www/YII/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#9 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
-#10 /var/www/YII/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
-#11 /var/www/YII/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#12 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
-#13 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('compositions')
-#14 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
-#15 /var/www/YII/devel.yii/index.php(13): CApplication->run()
-#16 {main}
-REQUEST_URI=/compositions
-HTTP_REFERER=http://devel.yii/portionMaterials/3
----
-2014/07/30 15:18:52 [error] [exception.CException] exception 'CException' with message 'Property "MaterialCompositions.material_id" is not defined.' in /var/www/YII/yii-1.1.14/framework/base/CComponent.php:130
-Stack trace:
-#0 /var/www/YII/yii-1.1.14/framework/db/ar/CActiveRecord.php(145): CComponent->__get('material_id')
-#1 /var/www/YII/devel.yii/protected/models/MaterialCompositions.php(92): CActiveRecord->__get('material_id')
-#2 /var/www/YII/devel.yii/protected/views/compositions/_index.php(34): MaterialCompositions->search()
-#3 /var/www/YII/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/YII/de...')
-#4 /var/www/YII/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/YII/de...', Array, true)
-#5 /var/www/YII/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/YII/de...', Array, true)
-#6 /var/www/YII/devel.yii/protected/views/compositions/index.php(18): CController->renderPartial('_index', Array)
-#7 /var/www/YII/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/YII/de...')
-#8 /var/www/YII/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/YII/de...', Array, true)
-#9 /var/www/YII/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/YII/de...', Array, true)
-#10 /var/www/YII/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
-#11 /var/www/YII/devel.yii/protected/controllers/CompositionsController.php(147): CController->render('index', Array)
-#12 /var/www/YII/yii-1.1.14/framework/web/actions/CInlineAction.php(49): CompositionsController->actionIndex()
-#13 /var/www/YII/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
-#14 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
-#15 /var/www/YII/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
-#16 /var/www/YII/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
-#17 /var/www/YII/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#18 /var/www/YII/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
-#19 /var/www/YII/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
-#20 /var/www/YII/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#21 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
-#22 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('compositions')
-#23 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
-#24 /var/www/YII/devel.yii/index.php(13): CApplication->run()
-#25 {main}
-REQUEST_URI=/compositions
-HTTP_REFERER=http://devel.yii/portionMaterials/3
----
-2014/07/30 16:51:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "myDepartment".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
-Stack trace:
-#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('myDepartment')
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('collaboratingDe...')
 #1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
 #2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
 #3 {main}
-REQUEST_URI=/myDepartment
-HTTP_REFERER=http://devel.yii/compositions
+REQUEST_URI=/collaboratingDepartments
+HTTP_REFERER=http://devel.yii/myDepartment/view
 ---
-2014/07/30 17:36:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "myDepartment".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
+2014/07/31 12:23:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "collaboratingDepartments".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
 Stack trace:
-#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('myDepartment')
+#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('collaboratingDe...')
 #1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
 #2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
 #3 {main}
-REQUEST_URI=/myDepartment
-HTTP_REFERER=http://devel.yii/compositions
----
-2014/07/30 17:36:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "myDepartment".' in /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php:286
-Stack trace:
-#0 /var/www/YII/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('myDepartment')
-#1 /var/www/YII/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
-#2 /var/www/YII/devel.yii/index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/myDepartment
+REQUEST_URI=/collaboratingDepartments
+HTTP_REFERER=http://devel.yii/myDepartment
 ---

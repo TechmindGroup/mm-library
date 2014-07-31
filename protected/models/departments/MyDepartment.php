@@ -2,6 +2,8 @@
 
 class MyDepartment extends Departments
 {
+	const DEFAULT_ID = 1;
+
 	public function beforeSave(){
 		$this->default = self::DEFAULT_DEPARTMENT;
 		return parent::beforeSave();
