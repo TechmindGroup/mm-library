@@ -3,13 +3,13 @@
 /* @var $model OtherDepartment */
 
 $this->breadcrumbs=array(
-	Yii::t('department','LABEL')=>array('index'),
+	Yii::t('departments','LABEL')=>array('index'),
 	$model->name
 );
 
 $this->menu=array(
 	array('label'=>Yii::t('app','view_all'), 'url'=>array('index')),
-	array('label'=>Yii::t('department','create_new'), 'url'=>array('create')),
+	array('label'=>Yii::t('departments','create_new'), 'url'=>array('create')),
 	array('label'=>Yii::t('app','edit'), 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>Yii::t('app','delete'), 'url'=>'#',
 		'linkOptions'=>array(
@@ -21,7 +21,7 @@ $this->menu=array(
 );
 ?>
 
-<h1><?php echo Yii::t('department','card_remaining'); ?></h1>
+<h1><?php echo Yii::t('departments','info'); ?></h1>
 
 <div class="form">
 

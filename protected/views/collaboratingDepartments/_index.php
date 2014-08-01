@@ -4,7 +4,8 @@
 
 	// $gridColumns
 	$gridColumns = array(
-		array('name'=>'name', 'header'=>Yii::t('department','name')),
+		array('name'=>'name', 'header'=>Yii::t('departments','name')),
+		array('name'=>'abbreviation', 'header'=>Yii::t('departments','abbreviation')),
 		array(
 			'htmlOptions' => array(
 				'nowrap'=>'nowrap',

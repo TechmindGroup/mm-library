@@ -70,7 +70,6 @@ class CompositionsController extends Controller
 		if(isset($_POST['MaterialCompositions']))
 		{
 			$model->attributes=$_POST['MaterialCompositions'];
-			print($model->validate());
 			if($model->save()){
 				$this->redirect(array('view','id'=>$model->id));
 			}

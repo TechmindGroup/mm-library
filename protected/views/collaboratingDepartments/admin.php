@@ -3,13 +3,13 @@
 /* @var $model OtherDepartment */
 
 $this->breadcrumbs=array(
-	Yii::t('department','LABEL')=>array('index'),
+	Yii::t('departments','LABEL')=>array('index'),
 	Yii::t('app','management'),
 );
 
 $this->menu=array(
 	array('label'=>Yii::t('app','view_all'), 'url'=>array('index')),
-	array('label'=>Yii::t('department','create_new'), 'url'=>array('create')),
+	array('label'=>Yii::t('departments','create_new'), 'url'=>array('create')),
 );
 ?>
 <h1><?php echo Yii::t('app','management'); ?></h1>

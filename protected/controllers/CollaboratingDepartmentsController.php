@@ -63,19 +63,15 @@ class CollaboratingDepartmentsController extends Controller
 	public function actionCreate()
 	{
 		$model=new OtherDepartment;
-
-		// Uncomment the following line if AJAX validation is needed
 		$this->performAjaxValidation($model);
 
 		if(isset($_POST['OtherDepartment']))
 		{
 			$model->attributes=$_POST['OtherDepartment'];
-			print($model->validate());
 			if($model->save()){
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}
-
 		$this->render('create',array(
 			'model'=>$model
 		));
@@ -133,11 +129,11 @@ class CollaboratingDepartmentsController extends Controller
 	{
 		$model=new OtherDepartment('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['PortionMaterials']))
-			$model->attributes=$_GET['PortionMaterials'];
+		if(isset($_GET['OtherDepartment']))
+			$model->attributes=$_GET['OtherDepartment'];
 
 		if (Yii::app()->getRequest()->getIsAjaxRequest() &&
-			(isset($_GET['ajax']) && $_GET['ajax']==='material-grid')) {
+			(isset($_GET['ajax']) && $_GET['ajax']==='department-grid')) {
 //			header( 'Content-type: application/json' );
 			$this->renderPartial('_index', compact('model'));
 			Yii::app()->end();
@@ -190,10 +186,58 @@ class CollaboratingDepartmentsController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='materials-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='department-form')
 		{
 			echo TbActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	public function renderGroupButtons($data, $row)
+	{
+		$items = array();
+		$items[] = array(
+			'label' => Yii::t('app','view'),
+			'icon'=>'glyphicon glyphicon-eye-open',
+			'url' => Yii::app()->controller->createUrl("view",array("id"=>$data->id))
+		);
+
+		if($this->Action->Id == 'admin'){
+			Yii::app()->clientScript->registerScriptFile(
+				Yii::app()->baseUrl.'/js/button.actions.js',CClientScript::POS_END);
+
+			$items[] = array(
+				'label' => Yii::t('app','edit'),
+				'icon'=>'glyphicon glyphicon-edit',
+				'url' => Yii::app()->controller->
+						createUrl("update",array("id"=>$data->id))
+			);
+			$items[] = array(
+				'buttonType' => 'button',
+				'label' => Yii::t('app','delete'),
+				'icon'=>'glyphicon glyphicon-trash',
+				'url' => '#',
+				'linkOptions' => array(
+					'data-url' => Yii::app()->controller->
+							createUrl("delete", array("id"=>$data->id)),
+					'data-need-confirm'=>'true',
+					'data-confirmation-message'=>Yii::t('app','delete_confirmation_message')
+				)
+			);
+		}
+
+		$this->widget(
+			'booster.widgets.TbButtonGroup',
+			array(
+				'context'=>'default',
+				'size' => 'small',
+				'buttons' => array(
+					array('label' => null,'icon'=>'wrench', 'url' => '#'),
+					array(
+						'items' => $items
+					)
+				),
+			)
+		);
 	}
 }
