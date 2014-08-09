@@ -75,8 +75,11 @@ class CompositionsController extends Controller
 			}
 		}
 
+		$materialData = array();
+
 		$this->render('create',array(
-			'model'=>$model
+			'model'=>$model,
+			'materialData'=>$materialData
 		));
 	}
 
