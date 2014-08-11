@@ -52,39 +52,6 @@ LOCK TABLES `department_materials` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `department_materials_unsorted`
---
-
-DROP TABLE IF EXISTS `department_materials_unsorted`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `department_materials_unsorted` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `material_id` bigint(20) unsigned NOT NULL,
-  `quantity` decimal(6,2) unsigned NOT NULL,
-  `quantity_unit` int(10) unsigned NOT NULL,
-  `department_id` int(10) unsigned NOT NULL,
-  `create_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `index2` (`material_id`),
-  KEY `index3` (`quantity_unit`),
-  KEY `index4` (`department_id`),
-  CONSTRAINT `fk_department_materials_unsorted_1` FOREIGN KEY (`material_id`) REFERENCES `materials_unsorted` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `fk_department_materials_unsorted_2` FOREIGN KEY (`quantity_unit`) REFERENCES `material_qunits` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `fk_department_materials_unsorted_3` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `department_materials_unsorted`
---
-
-LOCK TABLES `department_materials_unsorted` WRITE;
-/*!40000 ALTER TABLE `department_materials_unsorted` DISABLE KEYS */;
-/*!40000 ALTER TABLE `department_materials_unsorted` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `departments`
 --
 
@@ -94,9 +61,20 @@ DROP TABLE IF EXISTS `departments`;
 CREATE TABLE `departments` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `description` text,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `abbreviation` varchar(255) DEFAULT NULL COMMENT 'συντόμογραφία',
+  `administration` varchar(255) DEFAULT NULL COMMENT 'διαχείρηση',
+  `administration_abbreviation` varchar(255) DEFAULT NULL COMMENT 'συντομογραφία διαχείρησης',
+  `formation` varchar(255) DEFAULT NULL COMMENT 'σχηματισμός',
+  `code` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `code_completion` varchar(255) DEFAULT NULL COMMENT 'κωδικός αποστολή συμπληρώσεως',
+  `ea` varchar(255) DEFAULT NULL COMMENT 'επιστρατευούσα άρχη',
+  `default` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name_UNIQUE` (`name`),
+  KEY `index3` (`default`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,6 +83,7 @@ CREATE TABLE `departments` (
 
 LOCK TABLES `departments` WRITE;
 /*!40000 ALTER TABLE `departments` DISABLE KEYS */;
+INSERT INTO `departments` VALUES (1,'aaaddd','bb','cc','dd','ee','ff','hh','jj','gg','kk',1),(12,'monada1','','','','','','','','','',0),(13,'monada2','m2','','','','','','','','',0);
 /*!40000 ALTER TABLE `departments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,14 +159,17 @@ DROP TABLE IF EXISTS `material_composition_items`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `material_composition_items` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `composition_id` bigint(20) unsigned NOT NULL,
   `nominal_number` varchar(255) NOT NULL,
-  `charged_number` varchar(255) DEFAULT NULL,
-  `credit_number` varchar(255) DEFAULT NULL,
-  `department_id` int(10) unsigned NOT NULL,
-  `delivery_department` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `quantity_unit` int(10) unsigned NOT NULL,
+  `quantity_expected` decimal(4,0) unsigned NOT NULL DEFAULT '1',
+  `quantity_not_charged` decimal(4,0) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `index2` (`department_id`),
-  CONSTRAINT `fk_material_composition_1` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `index2` (`composition_id`),
+  KEY `index3` (`quantity_unit`),
+  CONSTRAINT `fk_material_composition_items_1` FOREIGN KEY (`composition_id`) REFERENCES `material_components` (`composition_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_material_composition_items_2` FOREIGN KEY (`quantity_unit`) REFERENCES `material_qunits` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -215,8 +197,8 @@ CREATE TABLE `material_compositions` (
   PRIMARY KEY (`id`),
   KEY `index2` (`material_id`),
   KEY `index3` (`department_id`),
-  CONSTRAINT `fk_material_compositions_2` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `fk_material_compositions_1` FOREIGN KEY (`material_id`) REFERENCES `materials` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `fk_material_compositions_1` FOREIGN KEY (`material_id`) REFERENCES `materials` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_material_compositions_2` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -312,73 +294,6 @@ INSERT INTO `materials` VALUES (1,111,1,'111','','111','111',1,1,2,0,2,1,0,'111'
 UNLOCK TABLES;
 
 --
--- Table structure for table `materials_unsorted`
---
-
-DROP TABLE IF EXISTS `materials_unsorted`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `materials_unsorted` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `description` varchar(255) NOT NULL,
-  `comment` text,
-  `nominal_number` varchar(255) NOT NULL COMMENT 'αριθμός ονομαστικού',
-  `code` bigint(20) NOT NULL COMMENT 'αριθμος κώδικα',
-  `category` int(10) unsigned NOT NULL,
-  `quantity_unit` int(10) unsigned NOT NULL COMMENT 'μονάδα μέτρησης',
-  `quantity` decimal(6,2) unsigned NOT NULL DEFAULT '0.00' COMMENT 'current quantity',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  UNIQUE KEY `code_UNIQUE` (`code`),
-  KEY `category_index` (`category`),
-  KEY `unit_index` (`quantity_unit`),
-  CONSTRAINT `fk_materials_unsorted_1` FOREIGN KEY (`category`) REFERENCES `material_categories` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `fk_materials_unsorted_2` FOREIGN KEY (`quantity_unit`) REFERENCES `material_qunits` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `materials_unsorted`
---
-
-LOCK TABLES `materials_unsorted` WRITE;
-/*!40000 ALTER TABLE `materials_unsorted` DISABLE KEYS */;
-/*!40000 ALTER TABLE `materials_unsorted` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `my_department`
---
-
-DROP TABLE IF EXISTS `my_department`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `my_department` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `abbreviation` varchar(255) DEFAULT NULL COMMENT 'συντόμογραφία',
-  `administration` varchar(255) DEFAULT NULL COMMENT 'διαχείρηση',
-  `administration_abbreviation` varchar(255) DEFAULT NULL COMMENT 'συντομογραφία διαχείρησης',
-  `formation` varchar(255) DEFAULT NULL COMMENT 'σχηματισμός',
-  `code` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `city` varchar(255) DEFAULT NULL,
-  `code_completion` varchar(255) DEFAULT NULL COMMENT 'κωδικός αποστολή συμπληρώσεως',
-  `ea` varchar(255) DEFAULT NULL COMMENT 'επιστρατευούσα άρχη',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `my_department`
---
-
-LOCK TABLES `my_department` WRITE;
-/*!40000 ALTER TABLE `my_department` DISABLE KEYS */;
-/*!40000 ALTER TABLE `my_department` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `users`
 --
 
@@ -424,4 +339,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-30 13:27:22
+-- Dump completed on 2014-08-11 23:31:16

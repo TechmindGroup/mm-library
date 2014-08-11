@@ -15,6 +15,9 @@
  */
 	class MaterialCompositions extends CActiveRecord
 	{
+		public $material_am;
+		public $material_description;
+
 		/**
 		 * @return string the associated database table name
 		 */
@@ -67,6 +70,8 @@
 				'material_id' => Yii::t('materialCompositions','material'),
 				'department_id' => Yii::t('materialCompositions','department'),
 				'documentary_number' => Yii::t('materialCompositions','documentary_number'),
+				'material_am' => Yii::t('materials','portion_number'),
+				'material_description' => Yii::t('materials','description'),
 			);
 		}
 

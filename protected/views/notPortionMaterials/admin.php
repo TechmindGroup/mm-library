@@ -6,7 +6,7 @@
 
 $assign_model=new PortionMaterials;
 
-	$this->breadcrumbs=array(
+$this->breadcrumbs=array(
 	Yii::t('notPortionMaterials','LABEL')=>array('index'),
 	Yii::t('app','management'),
 );

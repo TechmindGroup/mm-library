@@ -5,14 +5,16 @@
  *
  * The followings are the available columns in table 'material_composition_items':
  * @property string $id
+ * @property int $composition_id
  * @property string $nominal_number
- * @property string $charged_number
- * @property string $credit_number
- * @property string $department_id
- * @property string $delivery_department
+ * @property string $description
+ * @property int $quantity_unit
+ * @property string $quantity_expected
+ * @property string $quantity_not_charged
  *
  * The followings are the available model relations:
- * @property Departments $department
+ * @property MaterialCompositions $composition
+ * @property MaterialQunits $unit
  */
 class MaterialCompositionItems extends CActiveRecord
 {
@@ -32,12 +34,30 @@ class MaterialCompositionItems extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nominal_number, department_id, delivery_department', 'required'),
-			array('nominal_number, charged_number, credit_number, delivery_department', 'length', 'max'=>255),
-			array('department_id', 'length', 'max'=>10),
+			array('composition_id, nominal_number, description, quantity_unit, quantity_expected'
+			, 'required'),
+			array('nominal_number, description'
+			, 'length', 'max'=>255),
+			//numerical
+			array('quantity_expected, quantity_not_charged'
+			, 'numerical'
+			, 'integerOnly'=>true, 'min'=>0),
+			//exist
+			array('composition_id', 'exist', 'attributeName'=>'id',
+				'className' => 'MaterialCompositions'),
+			array('quantity_unit', 'exist', 'attributeName'=>'id',
+				'className' => 'MaterialQunits'),
+			//default
+			array('quantity_expected, quantity_not_charged'
+			, 'default'
+			, 'value'=>0),
+			//filter
+			array('nominal_number, description'
+				, 'filter', 'filter'=>'strip_tags'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, nominal_number, charged_number, credit_number, department_id, delivery_department', 'safe', 'on'=>'search'),
+			array('id, nominal_number, description, description, quantity_unit, quantity_expected, quantity_not_charged'
+			, 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,7 +69,8 @@ class MaterialCompositionItems extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'department' => array(self::BELONGS_TO, 'Departments', 'department_id'),
+			'composition' => array(self::BELONGS_TO, 'MaterialCompositions', 'composition_id'),
+			'unit' => array(self::BELONGS_TO, 'MaterialQunits', 'quantity_unit'),
 		);
 	}
 
@@ -59,12 +80,12 @@ class MaterialCompositionItems extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'nominal_number' => 'Nominal Number',
-			'charged_number' => 'Charged Number',
-			'credit_number' => 'Credit Number',
-			'department_id' => 'Department',
-			'delivery_department' => 'Delivery Department',
+			'composition_id' => Yii::t('materialCompositionItems','composition_id'),
+			'nominal_number' => Yii::t('materialCompositionItems','nominal_number'),
+			'description' => Yii::t('materialCompositionItems','description'),
+			'quantity_unit' => Yii::t('materialCompositionItems','quantity_unit'),
+			'quantity_expected' => Yii::t('materialCompositionItems','quantity_expected'),
+			'quantity_not_charged' => Yii::t('materialCompositionItems','quantity_not_charged'),
 		);
 	}
 
@@ -87,11 +108,12 @@ class MaterialCompositionItems extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
+		$criteria->compare('composition_id',$this->composition_id,true);
 		$criteria->compare('nominal_number',$this->nominal_number,true);
-		$criteria->compare('charged_number',$this->charged_number,true);
-		$criteria->compare('credit_number',$this->credit_number,true);
-		$criteria->compare('department_id',$this->department_id,true);
-		$criteria->compare('delivery_department',$this->delivery_department,true);
+		$criteria->compare('description',$this->description,true);
+		$criteria->compare('quantity_unit',$this->quantity_unit,true);
+		$criteria->compare('quantity_expected',$this->quantity_expected,true);
+		$criteria->compare('quantity_not_charged',$this->quantity_not_charged,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

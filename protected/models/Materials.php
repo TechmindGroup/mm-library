@@ -40,6 +40,9 @@ class Materials extends CActiveRecord
 	const PORTION_STATUS_INCLUDED = 1;
 	const PORTION_STATUS_NOT_INCLUDED = 0;
 
+	const COLLECTION_FALSE = 0;
+	const COLLECTION_TRUE = 1;
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -210,5 +213,9 @@ class Materials extends CActiveRecord
 	public function beforeSave(){
 		$this->quantity_diff = $this->quantity - $this->charged;
 		return parent::beforeSave();
+	}
+
+	public function getListName(){
+		return sprintf('(%s) %s',$this->am,$this->description);
 	}
 }

@@ -19,7 +19,6 @@
  *
  * The followings are the available model relations:
  * @property DepartmentMaterials[] $departmentMaterials
- * @property DepartmentMaterialsUnsorted[] $departmentMaterialsUnsorteds
  * @property MaterialCompositions[] $materialCompositions
  */
 class Departments extends CActiveRecord
@@ -63,7 +62,6 @@ class Departments extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'departmentMaterials' => array(self::HAS_MANY, 'DepartmentMaterials', 'department_id'),
-			'departmentMaterialsUnsorteds' => array(self::HAS_MANY, 'DepartmentMaterialsUnsorted', 'department_id'),
 			'materialCompositions' => array(self::HAS_MANY, 'MaterialCompositions', 'department_id'),
 		);
 	}
@@ -123,5 +121,9 @@ class Departments extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	public function getListName(){
+		return sprintf('(%s) %s',$this->abbreviation,$this->name);
 	}
 }

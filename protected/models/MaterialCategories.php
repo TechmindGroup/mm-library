@@ -10,7 +10,6 @@
  *
  * The followings are the available model relations:
  * @property Materials[] $materials
- * @property MaterialsUnsorted[] $materialsUnsorteds
  * @property MaterialCategories[] $childCategories
  * @property MaterialCategories $parentCategory
  */
@@ -57,7 +56,6 @@ class MaterialCategories extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'materials' => array(self::HAS_MANY, 'Materials', 'category'),
-			'materialsUnsorteds' => array(self::HAS_MANY, 'MaterialsUnsorted', 'category'),
 			'childCategories' => array(self::HAS_MANY, 'MaterialCategories', 'parent_id'),
 			'parentCategory' => array(self::BELONGS_TO, 'MaterialCategories', 'parent_id'),
 		);

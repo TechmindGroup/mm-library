@@ -13,6 +13,15 @@ class PortionMaterials extends Materials
 		);
 	}
 
+	public function scopes()
+	{
+		return array(
+			'has_composition'=>array(
+				'condition'=>'collection='.static::COLLECTION_FALSE
+			),
+		);
+	}
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

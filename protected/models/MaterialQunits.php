@@ -10,10 +10,8 @@
  *
  * The followings are the available model relations:
  * @property DepartmentMaterials[] $departmentMaterials
- * @property DepartmentMaterialsUnsorted[] $departmentMaterialsUnsorteds
  * @property MaterialComponents[] $materialComponents
  * @property Materials[] $materials
- * @property MaterialsUnsorted[] $materialsUnsorteds
  */
 class MaterialQunits extends CActiveRecord
 {
@@ -53,10 +51,8 @@ class MaterialQunits extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'departmentMaterials' => array(self::HAS_MANY, 'DepartmentMaterials', 'quantity_unit'),
-			'departmentMaterialsUnsorteds' => array(self::HAS_MANY, 'DepartmentMaterialsUnsorted', 'quantity_unit'),
 			'materialComponents' => array(self::HAS_MANY, 'MaterialComponents', 'unit'),
 			'materials' => array(self::HAS_MANY, 'Materials', 'quantity_unit'),
-			'materialsUnsorteds' => array(self::HAS_MANY, 'MaterialsUnsorted', 'quantity_unit'),
 		);
 	}
 
